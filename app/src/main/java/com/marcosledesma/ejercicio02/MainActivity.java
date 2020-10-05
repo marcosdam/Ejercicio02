@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -65,6 +66,12 @@ public class MainActivity extends AppCompatActivity {
                     txtNota.setText(nota.getTitulo());
                     txtNota.setTextSize(20);
                     txtNota.setTextColor(Color.BLUE);
+
+                    // Parametros layoutHorizontal (textView ocupa 3/4)
+                    LinearLayout.LayoutParams paramsTXT = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 3);
+                    paramsTXT.setMargins(10, 10, 10, 10);
+                    txtNota.setLayoutParams(paramsTXT);
+
                     //Boton
                     Button btnEliminar = new Button(this);
                     btnEliminar.setText("BORRAR");
@@ -77,6 +84,11 @@ public class MainActivity extends AppCompatActivity {
                             repintarElementos();
                         }
                     });
+
+                    // Parámetros layoutHorizontal (btnEliminar ocupa 1/4)
+                    LinearLayout.LayoutParams paramsBTN = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1);
+                    paramsBTN.setMargins(10, 10, 10, 10);
+                    btnEliminar.setLayoutParams(paramsBTN);
 
                     // CREADO UN INTENT CON LA INFO (al clicar en titulo nota me lleva a la act_EDITAR_VER_NOTA)
                     txtNota.setOnClickListener(new View.OnClickListener() {
@@ -135,9 +147,20 @@ public class MainActivity extends AppCompatActivity {
             txtNota.setText(nota.getTitulo());
             txtNota.setTextSize(20);
             txtNota.setTextColor(Color.BLUE);
+
+            // Parametros layoutHorizontal (textView ocupa 3/4)
+            LinearLayout.LayoutParams paramsTXT = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 3);
+            paramsTXT.setMargins(10, 10, 10, 10);
+            txtNota.setLayoutParams(paramsTXT);
+
             //Boton
             Button btnEliminar = new Button(this);
             btnEliminar.setText("BORRAR");
+
+            // Parámetros layoutHorizontal (btnEliminar ocupa 1/4)
+            LinearLayout.LayoutParams paramsBTN = new LinearLayout.LayoutParams(0, ViewGroup.LayoutParams.WRAP_CONTENT, 1);
+            paramsBTN.setMargins(10, 10, 10, 10);
+            btnEliminar.setLayoutParams(paramsBTN);
 
             // CREADO UN INTENT CON LA INFO
             final int posicion = i;
