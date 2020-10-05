@@ -73,17 +73,8 @@ public class MainActivity extends AppCompatActivity {
                     btnEliminar.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            /*// Recibir la posición de la nota en el ArrayList y eliminarla
-                            Intent intent = new Intent(MainActivity.this, MainActivity.class);
-                            Bundle bundle = new Bundle();
-                            bundle.putParcelable("NOTA", nota);
-                            bundle.putInt("POSICION", posicion);
-                            intent.putExtras(bundle);
-                            // Obtengo la posición
-                            int posicion = getIntent().getExtras().getInt("POSICION");
                             notas.remove(posicion);
-                            setResult(RESULT_OK, intent);
-                            */
+                            repintarElementos();
                         }
                     });
 
@@ -98,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
                             intent.putExtras(bundle);
                             //
                             startActivityForResult(intent, EDITAR_VER_NOTA);
+
                         }
                     });
                     // AGREGAR AL CONTENEDOR LOS ELEMENTOS CREADOS POR CÓDIGO
@@ -152,12 +144,11 @@ public class MainActivity extends AppCompatActivity {
             txtNota.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(MainActivity.this, EditarVerNota.class);
                     Bundle bundle = new Bundle();
-                    bundle.putParcelable("NOTA", nota);
                     bundle.putInt("POSICION", posicion);
+                    bundle.putParcelable("NOTA", nota);
+                    Intent intent = new Intent(MainActivity.this, EditarVerNota.class);
                     intent.putExtras(bundle);
-                    //
                     startActivityForResult(intent, EDITAR_VER_NOTA);
                 }
             });
